@@ -1,15 +1,6 @@
 <template>
   <container>
-    <div class="title-page text-center">
-      <h4>Javascript Obfuscator</h4>
-      <h6>
-        Make your code harder to copy and prevent people from stealing your
-        work.
-      </h6>
-      <a @click="showMeaning" class="text-muted"
-        >What is obfuscation in programming?</a
-      >
-    </div>
+    <PageTitle @def-clicked="showMeaning" />
 
     <input-container>
       <textarea
@@ -56,6 +47,7 @@ import Obfuscator from "javascript-obfuscator";
 import InputContainer from "../components/InputContainer.vue";
 import HomeContainer from "../components/HomeContainer.vue";
 import ResultContainer from "../components/ResultContainer.vue";
+import PageTitle from "../components/PageTitle.vue";
 
 export default {
   name: "Home",
@@ -79,8 +71,7 @@ export default {
         timer: 1000,
       });
     },
-    showMeaning(e) {
-      e.preventDefault();
+    showMeaning() {
       swal(
         "What is obfuscation?",
         "Code obfuscation is the technique of making the source code of an application difficult to read and comprehend so it becomes almost impossible for any unauthorized third-party group or individual, using any available tools, to reverse engineer it",
@@ -92,6 +83,7 @@ export default {
     "input-container": InputContainer,
     container: HomeContainer,
     "result-container": ResultContainer,
+    PageTitle,
   },
 };
 </script>
@@ -101,33 +93,7 @@ h4 {
   font-weight: 600;
 }
 
-.swal-modal {
-  .swal-icon--info {
-    &::before,
-    &::after {
-      background-color: #a5dc86;
-    }
-    color: rgba(57, 57, 64, 0.95);
-    border: 4px solid #a5dc86;
-  }
-  .swal-title,
-  .swal-text {
-    color: #fff;
-  }
-  .swal-button {
-    border: none;
-    &:hover {
-      color: #fff;
-      background-color: #4d4d53 !important;
-    }
-    background-color: #4d4d53;
-    color: #fff;
-    font-weight: 600;
-  }
-  background-color: rgba(57, 57, 64, 0.95);
-}
-
-.title-page {
+.page-title {
   a {
     &:hover {
       color: #fff !important;
