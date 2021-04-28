@@ -21,15 +21,18 @@
     <result-container>
       <div class="result-container" v-show="result !== ''">
         <div class="container">
-          <h3>
+          <h4>
             Result :
-            <button @click="copyResult" class="btn btn-dark shadow-none">
-              Copy
-            </button>
-          </h3>
-          <p>
+          </h4>
+          <code>
             {{ result }}
-          </p>
+          </code>
+          <button
+            @click="copyResult"
+            class="btn mt-3 mb-2 btn-block btn-dark btn-sm shadow-none"
+          >
+            Copy
+          </button>
         </div>
       </div>
     </result-container>
@@ -59,7 +62,7 @@ export default {
     obfuscateCode() {
       try {
         const result = Obfuscator.obfuscate(this.value);
-        this.result = format(result.getObfuscatedCode().replace(/\s/g, " "));
+        this.result = format(result.getObfuscatedCode());
       } catch (err) {
         this.result = "";
         swal("Error", `${err}`, "error");
