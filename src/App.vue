@@ -1,12 +1,12 @@
 <template>
   <router-view />
-  <footer>Dimas Andhika</footer>
+  <footer class="text-center">Dimas Andhika</footer>
 </template>
 
 <style lang="scss" scoped>
 footer {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 5px;
+  left: 5px;
 }
 </style>
